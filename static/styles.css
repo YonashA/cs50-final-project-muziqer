@@ -1,0 +1,211 @@
+/* Remove underline from a tags */
+a {
+    text-decoration: none;
+}
+
+body {
+    background-image: url('/static/background-black.jpg');
+    background-size: cover;
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: lighter;
+    color: #90cdfa;
+    font-size: 1em;
+}
+
+#unsplash {
+    font-size: 0.6em;
+    color: grey !important;
+}
+
+#unsplash a {
+    color: grey !important;
+}
+
+footer svg {
+    color: #90cdfa;
+}
+
+footer svg:hover {
+    color: #f9b400;
+}
+
+footer .container {
+    margin-bottom: 15px !important;
+    margin-top: 15px !important;
+}
+
+/* Navbar */
+.navbar {
+    background-color: black;
+    box-shadow: none;
+    color: white !important;
+    opacity: 0.8 !important;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.position-sticky {
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 1.4em;
+}
+
+.navbar-brand:hover {
+    color: #f9b400;
+}
+
+.nav-link {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 300;
+    color: #f9b400;
+    font-size: 1em;
+}
+
+.nav-link:hover {
+    color: #90cdfa;
+}
+
+.log-out {
+    color: #f9b400 !important;
+    border: 1px solid #f9b400 !important;
+}
+
+.log-out:hover {
+    color: white !important;
+    background-color: #90cdfa !important;
+}
+
+#to-the-top {
+    margin-top: 20px !important;
+}
+
+.hidden {
+    display: none
+}
+
+.card.card-plain {
+    background-color: black;
+    box-shadow: none;
+    color: white;
+    opacity: 0.8;
+    border-radius: 20px;
+}
+
+.card.card-body {
+    padding: 1.5rem;
+}
+
+.card.card-header {
+    padding: 1.5rem;
+}
+
+.text-app {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: #90cdfa;
+    font-size: 4em;
+}
+
+.card-header p {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 300;
+    color: #f9b400;
+    font-size: 2em;
+}
+
+.card-body form {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.forgot {
+    color: grey;
+}
+
+#match {
+    color: red;
+}
+
+/* Contact */
+.text-contact {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: #90cdfa;
+    font-size: 2em;
+}
+
+.contact-message {
+    font-size: 1.2em !important;
+}
+
+.space {
+    margin-top: 150px;
+}
+
+/* Home */
+
+#recordsTable th {
+    color: #90cdfa;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+}
+
+#delete-button {
+    font-family: 'Rajdhani', sans-serif;
+    color: #f9b400 !important;
+    border: 1px solid #f9b400 !important;
+    border-radius: 5px;
+    background-color: black;
+}
+
+
+#delete-button:hover {
+    color: white !important;
+    background-color: #90cdfa !important;
+}
+
+#recordsTable td {
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.menu {
+    background-color: #1F1F1F;
+}
+
+#recordsTable_info {
+    color: #90cdfa;
+    font-family: 'Rajdhani', sans-serif;
+    margin: 10px;
+}
+
+#recordsTable_paginate {
+    font-family: 'Rajdhani', sans-serif;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.paginate_button {
+    padding-left: 5px;
+}
+
+#recordsTable_length,
+#recordsTable_filter {
+    font-family: 'Rajdhani', sans-serif;
+    color: #90cdfa;
+    margin: 10px;
+    display: inline-block;
+}
+
+.ellipsis {
+    color: #90cdfa !important;
+}
