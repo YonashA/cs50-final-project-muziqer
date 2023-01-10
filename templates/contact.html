@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="min-vh-75">
+        <div class="container">
+            <div class="row space"></div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-8 col-md-10 d-flex flex-column mx-auto">
+                    <div class="card card-plain hidden">
+                        <div class="card-header">
+                            <h3 class="mb-0 text-contact text-left">CONTACT US</h3>
+                            <hr class="m-0">
+                            <p class="mb-0 contact-message text-left">We are happy to answer all your questions.<br>Use the below form and submit your inquiry.<br>We will
+                            get back to you as soon as possible!</p>
+                        </div>
+
+                        <!-- Contact form -->
+                        <div class="card-body">
+                            <form method="post" action="/contact">
+                                <label>Your name</label>
+                                <div class="mb-3">
+                                    <input required autocomplete="off" autofocus class="form-control w-100"
+                                        id="username" name="username" placeholder="Name & Surname" type="text">
+                                </div>
+                                <label>Username</label>
+                                <div class="mb-3">
+                                    <input required autocomplete="off" class="form-control w-100" value="{{ user_name }}" type="text">
+                                </div>
+                                <label>Email</label>
+                                <div class="mb-3">
+                                    <input required autocomplete="off" class="form-control w-100" value="{{ user_email }}" type="email">
+                                </div>
+                                <label>Your question</label>
+                                <div class="mb-3">
+                                    <textarea class="w-100" required autocomplete="off" rows="5" placeholder="How can we help you?"></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-primary mt-4 mb-0 w-50" type="submit" name="contact">SEND</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-4 col-md-2 d-flex flex-column mx-auto"></div>
+            </div>
+            <button class="log-out btn btn-round btn-sm mt-8 mb-0 btn-outline-primary me-2" onclick="topFunction()"
+                id="to-the-top">Back to top</button>
+            <div class="row space"></div>
+        </div>
+    </div>
+
+{% endblock %}

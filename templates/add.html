@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Add record
+{% endblock %}
+
+{% block main %}
+
+
+<div class="min-vh-75">
+    <div class="container">
+        <div class="row space"></div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-8 col-md-10 d-flex flex-column mx-auto">
+                <div class="card card-plain hidden">
+                    <div class="card-header">
+                        <h3 class="mb-0 text-contact text-left">ADD NEW RECORD</h3>
+                        <hr class="m-0">
+                        <p class="mb-0 contact-message text-left">Search for artist or album.<br>Fill in required fields and add it to your personal music records tracker!</p>
+                    </div>
+
+                    <!-- Add new record form -->
+                    <div class="card-body">
+                        <form method="post" action="/add">
+                            <label>Artist</label>
+                            <div class="mb-3">
+                                <input required autocomplete="off" autofocus class="form-control w-100" id="artist"
+                                    name="artist" placeholder="Artist name" type="text">
+                            </div>
+                            <label>Album</label>
+                            <div class="mb-3">
+                                <input required id="album" name="album" autocomplete="off" class="form-control w-100" placeholder="Album name"
+                                    type="text">
+                            </div>
+                            <label>Year</label>
+                            <div class="mb-3">
+                                <input id="year" name="year" autocomplete="off" class="form-control w-100" placeholder="Release year"
+                                    type="text">
+                            </div>
+                            <label>Genre</label>
+                            <div class="mb-3">
+                                <input required id="genre" name="genre" autocomplete="off" class="form-control w-100" placeholder="Start typing..."
+                                    type="search">
+                                <ul id="genre-list"></ul>
+                            </div>
+                            <label>Medium</label>
+                            <div class="mb-3">
+                                <select class="form-select" id="medium" name="medium">
+                                    <option disabled="" selected="">None</option>
+                                    <option value="Audio cassette">Audio cassette</option>
+                                    <option value="Video tape">Video tape</option>
+                                    <option value="CD">CD</option>
+                                    <option value="DVD">DVD</option>
+                                    <option value="Blu-ray">Blu-ray</option>
+                                    <option value="Vinyl">Vinyl</option>
+                                    <option value="Flash memory">Flash memory</option>
+                                </select>
+                            </div>
+                            <label>Nubmer of mediums</label>
+                            <div class="mb-3">
+                                <input required id="numbermedium" name="numbermedium" autocomplete="off" class="form-control w-100" placeholder="Number of mediums"
+                                    type="number" min="1">
+                            </div>
+                            <label>Shelf</label>
+                            <div class="mb-3">
+                                <input id="shelf" name="shelf" autocomplete="off" class="form-control w-100" type="text" value="0">
+                            </div>
+                            <label>Row</label>
+                            <div class="mb-3">
+                                <input id="row" name="row" autocomplete="off" class="form-control w-100" type="text" value="0">
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary mt-4 mb-0 w-50" type="submit"
+                                    name="contact">ADD</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-4 col-md-2 d-flex flex-column mx-auto">
+            </div>
+        </div>
+        <button class="log-out btn btn-round btn-sm mt-8 mb-0 btn-outline-primary me-2" onclick="topFunction()"
+            id="to-the-top">Back to top</button>
+        <div class="row space"></div>
+    </div>
+</div>
+
+<script>
+
+    let input = document.getElementById('genre');
+    input.addEventListener('input', async function() {
+        let response = await fetch('/searchgenre?q=' + input.value);
+        let genres = await response.json();
+        let html = '';
+        for (let id in genres){
+            let genre = genres[id].genre;
+            html += '<li>' + genre + '</li>';
+        }
+        document.getElementById('genre-list').innerHTML = html;
+    });
+
+</script>
+
+{% endblock %}

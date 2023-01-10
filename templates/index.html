@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Your Music Storage
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="min-vh-75">
+        <div class="container">
+            <div class="row space"></div>
+            <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                        <div class="card card-plain hidden">
+                            <div class="card-header">
+                                <h3 class="mb-0 text-app text-left">MUZIQER</h3>
+                                <hr class="m-0">
+                                <p class="mb-0 text-left">YOUR MUSIC COLLECTION</p>
+                            </div>
+
+                            <!-- Login form -->
+                            <div id="loging" class="card-body">
+                                <form method="post" action="/login">
+                                    <label>Username</label>
+                                    <div class="mb-3">
+                                        <input required autocomplete="off" autofocus class="form-control mx-auto w-100" id="username" name="username" placeholder="Username" type="text">
+                                    </div>
+                                    <label>Password</label>
+                                    <div class="mb-3">
+                                        <input required autocomplete="off" class="form-control mx-auto w-100" id="l_password" name="l_password" placeholder="Password" type="password">
+                                    </div>
+                                    <label class="forgot">Forgot password? <a onclick="displayf('#forgetting')" href="#">Click here</a></label>
+                                    <div class="login text-center">
+                                        <button class="btn btn-primary mt-4 mb-0 w-100" type="submit" name="login">LOG IN</button>
+                                    </div>
+                                    <div class="register text-center">
+                                        <a onclick="display('#registering')" href="#" class="btn btn-secondary mt-4 mb-0 w-100">REGISTER</a>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Register form -->
+                            <div id="registering" class="card-body" style="display: none">
+                                <form method="post" action="/register" onsubmit="return verifyPassword()">
+                                    <label>Username</label>
+                                    <div class="mb-3">
+                                        <input required autocomplete="off" autofocus class="form-control mx-auto w-100" id="username" name="username"
+                                            placeholder="Username" type="text">
+                                    </div>
+                                    <label>Email</label>
+                                    <div class="mb-3">
+                                        <input required autocomplete="off" autofocus class="form-control mx-auto w-100" id="email" name="email"
+                                            placeholder="Email" type="email">
+                                    </div>
+                                    <label>Password</label>
+                                    <div class="mb-3">
+                                        <input required autocomplete="off" class="form-control mx-auto w-100" id="password" name="password"
+                                            placeholder="Password" type="password">
+                                    </div>
+                                    <label>Repeat Password</label>
+                                    <div class="mb-3">
+                                        <input required autocomplete="off" class="form-control mx-auto w-100" id="r_password" name="r_password" placeholder="Repeat password"
+                                            type="password">
+                                    </div>
+                                    <p class="m-0" id="match"></p>
+                                    <label class="forgot">Return to log in? <a onclick="display('#loging')" href="#" >Click here</a></label>
+                                    <div class="register text-center">
+                                        <button class="btn btn-secondary mt-4 mb-0 w-100" type="submit" name="register">REGISTER</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Forgot password form -->
+                            <div id="forgetting" class="card-body" style="display: none">
+                                <form method="post" action="/forgot">
+                                    <label>Email</label>
+                                    <div class="mb-3">
+                                        <input required autocomplete="off" autofocus class="form-control mx-auto w-100" id="email_f" name="email_f"
+                                            placeholder="Email" type="email">
+                                    </div>
+                                    <label class="forgot">Return to log in? <a onclick="displayx('#loging')" href="#">Click here</a></label>
+                                    <div class="login text-center">
+                                        <button class="btn btn-primary mt-4 mb-0 w-100" type="submit" name="forgot">RESET</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fade in Login box
+        $(document).ready(function () {
+                $('div.hidden').fadeIn(2500).removeClass('hidden');
+            })
+
+        // Toggle between the display of forms
+        function display() {
+                $("#loging").toggle();
+                $("#registering").toggle();
+            }
+
+        // Toggle between the display of forms
+        function displayf() {
+                $("#loging").toggle();
+                $("#forgetting").toggle();
+            }
+
+        // Toggle between the display of forms
+        function displayx() {
+            $("#forgetting").toggle();
+            $("#loging").toggle();
+        }
+
+         // Passwords do not match message
+         function verifyPassword() {
+                var password = document.getElementById("password").value;
+                var confirmPassword = document.getElementById("r_password").value;
+
+                if (password != confirmPassword) {
+                    document.querySelector("#match").innerHTML = "Passwords do not match!";
+                    return false;
+                }
+                return true;
+         }
+
+    </script>
+
+{% endblock %}

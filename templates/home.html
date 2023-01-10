@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ user_name }}
+{% endblock %}
+
+{% block main %}
+
+    <div class="min-vh-75">
+        <div class="container">
+            <div class="row space"></div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 d-flex flex-column mx-auto">
+                    <div class="card card-plain hidden">
+                        <div class="card-header">
+                            <h3 class="mb-0 text-contact text-left">Records for {{ user_name }}</h3>
+                            <hr class="m-0">
+                            <p class="mb-0 contact-message text-left">Last updated: {{ last_update }}</p>
+                            <p class="mb-0 contact-message text-left">There {{ number_records }} albums on {{ number_mediums }} music mediums of different types.</p>
+                        </div>
+
+                        <!-- Table of music records -->
+                    <table table id="recordsTable" class="mt-4 table table-striped" style="width:100%">
+                        <thead>
+                            <tr class="menu">
+                                <th class="th-sm">ID</th>
+                                <th class="th-sm">ARTIST</th>
+                                <th class="th-sm">ALBUM</th>
+                                <th class="th-sm">YEAR</th>
+                                <th class="th-sm">GENRE</th>
+                                <th class="th-sm">MEDIUM</th>
+                                <th class="th-sm">NUMBER</th>
+                                <th class="th-sm">SHELF</th>
+                                <th class="th-sm">ROW</th>
+                                <th class="th-sm"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in music_records %}
+                            <tr>
+                                <td>{{ record["number"] }}</td>
+                                <td>{{ record["artist"] }}</td>
+                                <td>{{ record["album"] }}</td>
+                                <td>{{ record["year"] }}</td>
+                                <td>{{ record["genre"] }}</td>
+                                <td>{{ record["medium"] }}</td>
+                                <td>{{ record["numbermedium"] }}</td>
+                                <td>{{ record["shelf"] }}</td>
+                                <td>{{ record["row"] }}</td>
+                                <td>
+                                    <form method="post" action="/delete">
+                                        <input type="hidden" name="delete" value="{{ record["number"] }}" />
+                                        <input id="delete-button" type="submit" name="delete" placeholder="Delete" value='Delete'/>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr class="menu">
+                                <th class="th-sm">ID</th>
+                                <th class="th-sm">ARTIST</th>
+                                <th class="th-sm">ALBUM</th>
+                                <th class="th-sm">YEAR</th>
+                                <th class="th-sm">GENRE</th>
+                                <th class="th-sm">MEDIUM</th>
+                                <th class="th-sm">NUMBER</th>
+                                <th class="th-sm">SHELF</th>
+                                <th class="th-sm">ROW</th>
+                                <th class="th-sm"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    </div>
+                </div>
+            </div>
+            <button class="log-out btn btn-round btn-sm mt-8 mb-0 btn-outline-primary me-2" onclick="topFunction()" id="to-the-top">Back to top</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+                $('#recordsTable').DataTable();
+            });
+    </script>
+
+
+{% endblock %}
